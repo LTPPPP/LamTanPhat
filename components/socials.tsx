@@ -1,7 +1,7 @@
-import githubIcon from "@/public/icons/Github.png";
-import facebookIcon from "@/public/icons/Facebook.png";
-import linkedInIcon from "@/public/icons/LinkedIn.png";
-import instagramIcon from "@/public/icons/Instagram.png";
+import githubIcon from "/icons/Github.png";
+import facebookIcon from "/icons/Facebook.png";
+import linkedInIcon from "/icons/LinkedIn.png";
+import instagramIcon from "/icons/Instagram.png";
 import Link from "next/link";
 import Image from "next/image";
 
