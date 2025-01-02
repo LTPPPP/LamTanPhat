@@ -58,7 +58,7 @@ export default function ChatInterface() {
                     <MessageCircle className="w-6 h-6" />
                 </button>
             ) : (
-                <div className="flex flex-col h-[600px] w-[400px] bg-white rounded-lg shadow-lg">
+                <div className={`flex flex-col h-[500px] w-[400px] bg-white rounded-lg shadow-lg border border-gray-600 transition-all duration-300 ${isChatOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                     <div className="flex justify-between items-center p-4 border-b">
                         <h2 className="text-lg font-bold">Chat</h2>
                         <button
