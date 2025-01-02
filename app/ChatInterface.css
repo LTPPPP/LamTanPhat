@@ -24,6 +24,7 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border: 1px solid #4b5563;
   font-size: 0.6rem;
+  z-index: 9000;
 }
 
 .chat-header {
@@ -93,6 +94,7 @@
   max-width: 80%;
   word-break: break-word;
   font-size: 0.6rem;
+  text-align: start;
 }
 
 .message-bubble-user {
