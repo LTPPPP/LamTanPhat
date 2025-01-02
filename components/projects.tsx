@@ -113,11 +113,9 @@ export const Projects = () => {
         <CarouselNext className="right-0 bg-black text-white" />
       </Carousel>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/50">
-          <div className="rounded-lg bg-white p-4 text-center">
-            <p className="mb-4 text-lg font-semibold">
-              Trang web hiện đang gặp vấn đề.
-            </p>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+          <div className="rounded-lg bg-white p-6 text-center shadow-lg">
+            <p className="mb-4 text-lg font-semibold text-red-500">Unavailable hosting now</p>
             <button
               onClick={closePopup}
               className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"

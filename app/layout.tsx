@@ -23,7 +23,7 @@ const animeAce = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://LamTanPhat.vercel.app"),
+  metadataBase: new URL("https://lamtanphat.vercel.app"),
   title: "Lam Tan Phat",
   description:
     "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description:
       "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
     type: "website",
-    url: "https://LamTanPhat.vercel.app",
+    url: "https://lamtanphat.vercel.app",
     images: ["/website-preview.png"],
   },
 };
