@@ -28,21 +28,9 @@ export const metadata: Metadata = {
   title: "Lam Tan Phat",
   description:
     "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
-  twitter: {
-    title: "Lam Tan Phat",
-    description:
-      "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
-    creator: "@LTPPPP",
-    images: [""],
-  },
-  openGraph: {
-    title: "Lam Tan Phat",
-    description:
-      "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
-    type: "website",
-    url: "https://lamtanphat.vercel.app",
-    images: [""],
-  },
+  icons: {
+    icon: ['/favicon.ico?v=4']
+  }
 };
 
 export default function RootLayout({
