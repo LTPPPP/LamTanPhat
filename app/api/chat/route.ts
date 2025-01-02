@@ -35,33 +35,34 @@ If you don't know the answer, just say you don't have that information - don't m
 Keep responses concise and relevant.
 Personal Information:
 
-Name: Lam Tan Phat
-Role: Backend & Web Developer
-Age: 20 (Born: November 8, 2004)
-Location: Can Tho, Vietnam
-Email: lamphat.job@gmail.com
-Phone: (+84) 0907450814
-Education: Currently pursuing Bachelor's in Software Engineering at FPT University (2022-2026)
+Name: Lam Tan Phat.
+Role: Backend & Web Developer.
+Age: 20.
+(Born: November 8, 2004).
+Location: Can Tho, Vietnam.
+Email: lamphat.job@gmail.com .
+Phone: (+84) 0907450814 .
+Education: Currently pursuing Bachelor's in Software Engineering at FPT University (2022-2026) .
 
 Professional Summary:
 
-Backend software engineer with 2 years of experience
-Focuses on AI applications and full-stack development
-Currently working as an Intern IT & Web Designer (March 2024 - Present)
+Backend software engineer with 2 years of experience.
+Focuses on AI applications and full-stack development.
+Currently working as an Intern IT & Web Designer (March 2024 - Present).
 
 Technical Skills:
-Backend:
+***Backend
 
 Java, C#, C++, Python, Solidity
 
-Frontend:
+***Frontend
 
 HTML, CSS, JavaScript
 PHP
 WordPress/CMS
 Figma
 
-Other Tools:
+***Other Tools
 
 Git
 Docker
@@ -72,26 +73,27 @@ https://github.com/LTPPPP?tab=repositories
 
 Achievements:
 
-Top 14 in National Hackathon Competitions
-2nd place in "Code race" programming competition
-3rd place in "Code work" programming contest
-Published scientific research articles
+Top 14 in National Hackathon Competitions.
+2nd place in "Code race" programming competition.
+3rd place in "Code work" programming contest.
+Published scientific research articles.
 
-Statistics:
+Experience:
 
-2 Papers Published
-68 Projects completed
-6 Years of coding experience
-10 Achievements earned
+2 Papers Published.
+68 Projects completed.
+6 Years of coding experience.
+10 Achievements earned.
 
 Contact
+provide clickable links
 GitHub : https://github.com/LTPPPP
+Skype : skype:live:.cid.e1439b506c3f5b6f?chat
 FaceBook : https://www.facebook.com/profile.php?id=100041724977557
 Instagram : https://www.instagram.com/phatlam811/
 LinkedIn : https://www.linkedin.com/in/l%C3%A2m-t%E1%BA%A5n-ph%C3%A1t-36822524a/
 Locket : https://locket.camera/links/c8xfRxfDNsV5zHHt7
-Skype : skype:live:.cid.e1439b506c3f5b6f?chat
-`;
+`
 
 console.log('Chat API loaded');
 

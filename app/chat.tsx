@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { Button } from '@/components/ui/button';
 import { Loader2, MessageCircle } from 'lucide-react';
 
@@ -9,7 +10,12 @@ interface Message {
 }
 
 export default function ChatInterface() {
-    const [messages, setMessages] = useState<Message[]>([]);
+    const [messages, setMessages] = useState<Message[]>([
+        {
+            role: 'assistant',
+            content: 'Xin chào, tôi là trợ lý của bạn. Hãy đặt câu hỏi để tôi có thể giúp bạn!',
+        },
+    ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -41,15 +47,25 @@ export default function ChatInterface() {
             console.error('Error:', error);
             setMessages(prev => [
                 ...prev,
-                { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' },
+                { role: 'assistant', content: 'Sorry, something go wrong, Help mee!' },
             ]);
         } finally {
             setIsLoading(false);
         }
     };
 
+    const handleNewChat = () => {
+        setMessages([
+            {
+                role: 'assistant',
+                content: 'Hi, I am Lam Tan Phat.Ask me questions so I can help you!',
+            },
+        ]);
+        setInput('');
+    };
+
     return (
-        <div className="fixed bottom-4 right-4">
+        <div className="fixed bottom-4 right-4" style={{ fontSize: '0.6rem' }}>
             {!isChatOpen ? (
                 <button
                     onClick={() => setIsChatOpen(true)}
@@ -58,15 +74,23 @@ export default function ChatInterface() {
                     <MessageCircle className="w-6 h-6" />
                 </button>
             ) : (
-                <div className={`flex flex-col h-[500px] w-[400px] bg-white rounded-lg shadow-lg border border-gray-600 transition-all duration-300 ${isChatOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <div className="flex flex-col h-[500px] w-[400px] bg-white rounded-lg shadow-lg border border-gray-600">
                     <div className="flex justify-between items-center p-4 border-b">
                         <h2 className="text-lg font-bold">Chat</h2>
-                        <button
-                            onClick={() => setIsChatOpen(false)}
-                            className="text-gray-500 hover:text-gray-700"
-                        >
-                            ✕
-                        </button>
+                        <div className="flex gap-2">
+                            <button
+                                onClick={handleNewChat}
+                                className="text-gray-500 hover:text-gray-700 px-2 py-1 bg-gray-200 rounded-lg"
+                            >
+                                New Chat
+                            </button>
+                            <button
+                                onClick={() => setIsChatOpen(false)}
+                                className="text-gray-500 hover:text-gray-700"
+                            >
+                                ✕
+                            </button>
+                        </div>
                     </div>
                     <div className="flex-1 overflow-y-auto p-4 space-y-4">
                         {messages.map((message, index) => (
@@ -75,12 +99,16 @@ export default function ChatInterface() {
                                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                             >
                                 <div
-                                    className={`p-3 rounded-lg max-w-[80%] ${message.role === 'user'
+                                    className={`p-3 rounded-lg max-w-[80%] break-words overflow-wrap-anywhere text-base ${message.role === 'user'
                                         ? 'bg-blue-500 text-white'
                                         : 'bg-gray-100 text-gray-900'
-                                        }`}
+                                        }`} style={{ fontSize: '0.6rem' }}
                                 >
-                                    {message.content}
+                                    {message.role === 'assistant' ? (
+                                        <ReactMarkdown>{message.content}</ReactMarkdown>
+                                    ) : (
+                                        message.content
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -92,7 +120,7 @@ export default function ChatInterface() {
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-                                placeholder="Ask me anything..."
+                                placeholder="Hãy đặt câu hỏi..."
                                 className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                                 disabled={isLoading}
                             />
@@ -104,7 +132,7 @@ export default function ChatInterface() {
                                 {isLoading ? (
                                     <Loader2 className="w-4 h-4 animate-spin" />
                                 ) : (
-                                    'Send'
+                                    'Gửi'
                                 )}
                             </Button>
                         </div>
