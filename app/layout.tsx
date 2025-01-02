@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -51,7 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="@/public/images/profile.jpg" type="image/x-icon" />
+      <Head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="66x56" />
+      </Head>
       <body
         className={`${animeAce.className} bg-dark-green text-white antialiased`}
       >
