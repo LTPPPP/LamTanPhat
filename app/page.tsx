@@ -124,7 +124,7 @@ export default function Home() {
         >
           <Skills />
         </MotionBox>
-        <Chat />
+        {/* <Chat /> */}
       </MotionGridLayout>
     </AnimatePresence>
   );
