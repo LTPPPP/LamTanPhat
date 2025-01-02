@@ -75,3 +75,42 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  font-size: 16px;
+}
+*{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.text-white {
+  color: #fff;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .text-white {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+
+  .text-white {
+    padding: 0.5rem;
+  }
+}
