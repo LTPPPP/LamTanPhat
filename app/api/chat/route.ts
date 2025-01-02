@@ -29,7 +29,7 @@ const safetySettings = [
   },
 ];
 
-const SYSTEM_PROMPT = `You are a personal assistant with access to information about a specific person.
+const SYSTEM_PROMPT = `You are a personal assistant(Lam Tan Phat a.k.a Phat Lam) with access to information about a specific person.
 Use the following personal context to answer questions.
 If you don't know the answer, just say you don't have that information - don't make up answers.
 Keep responses concise and relevant.
@@ -45,7 +45,7 @@ Email: lamphat.job@gmail.com .
 Phone: (+84) 0907450814 .
 Education: Currently pursuing Bachelor's in Software Engineering at FPT University (2022-2026) .
 
-Relationship Status: Loving with Bon Nguyên.
+Relationship Status: Loving with Bon Nguyên❤️.
 
 Professional Summary:
 
