@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Head from "next/head";
+import Chat from '@/app/chat';
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
         className={`${animeAce.className} bg-dark-green text-white antialiased`}
       >
         {children}
+        <Chat />
       </body>
     </html>
   );

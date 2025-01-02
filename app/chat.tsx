@@ -1,15 +1,17 @@
 'use client';
+
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Button } from '@/components/ui/button';
 import { Loader2, MessageCircle } from 'lucide-react';
+import './ChatInterface.css';
 
 interface Message {
     role: 'user' | 'assistant';
     content: string;
 }
 
-export default function ChatInterface() {
+const ChatInterface = () => {
     const [messages, setMessages] = useState<Message[]>([
         {
             role: 'assistant',
@@ -20,13 +22,25 @@ export default function ChatInterface() {
     const [isLoading, setIsLoading] = useState(false);
     const [isChatOpen, setIsChatOpen] = useState(false);
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value);
+    };
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    };
+
     const sendMessage = async () => {
         if (!input.trim()) return;
+
         try {
             setIsLoading(true);
             const newMessage: Message = { role: 'user', content: input };
             setMessages(prev => [...prev, newMessage]);
             setInput('');
+
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -47,7 +61,7 @@ export default function ChatInterface() {
             console.error('Error:', error);
             setMessages(prev => [
                 ...prev,
-                { role: 'assistant', content: 'Sorry, something go wrong, Help mee!' },
+                { role: 'assistant', content: 'Sorry, something went wrong!' },
             ]);
         } finally {
             setIsLoading(false);
@@ -58,51 +72,55 @@ export default function ChatInterface() {
         setMessages([
             {
                 role: 'assistant',
-                content: 'Hi, I am Lam Tan Phat.Ask me questions so I can help you!',
+                content: 'Hi, I am your assistant. Ask me questions so I can help you!',
             },
         ]);
         setInput('');
     };
 
     return (
-        <div className="fixed bottom-4 right-4" style={{ fontSize: '0.6rem' }}>
+        <div className="fixed bottom-4 right-4">
             {!isChatOpen ? (
                 <button
                     onClick={() => setIsChatOpen(true)}
-                    className="p-4 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600 fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8"
+                    className="chat-toggle-button"
+                    aria-label="Open chat"
                 >
                     <MessageCircle className="w-6 h-6" />
                 </button>
             ) : (
-                <div className="flex flex-col h-[500px] w-[400px] bg-white rounded-lg shadow-lg border border-gray-600">
-                    <div className="flex justify-between items-center p-4 border-b">
-                        <h2 className="text-lg font-bold">Chat</h2>
-                        <div className="flex gap-2">
+                <div className="chat-container">
+                    <header className="chat-header">
+                        <h2 className="chat-title">Chat</h2>
+                        <div className="chat-header-buttons">
                             <button
                                 onClick={handleNewChat}
-                                className="text-gray-500 hover:text-gray-700 px-2 py-1 bg-gray-200 rounded-lg"
+                                className="new-chat-button"
                             >
                                 New Chat
                             </button>
                             <button
                                 onClick={() => setIsChatOpen(false)}
-                                className="text-gray-500 hover:text-gray-700"
+                                className="close-button"
+                                aria-label="Close chat"
                             >
                                 ✕
                             </button>
                         </div>
-                    </div>
-                    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                    </header>
+
+                    <div className="chat-messages">
                         {messages.map((message, index) => (
                             <div
                                 key={index}
-                                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                className={`message-wrapper ${message.role === 'user' ? 'message-user' : 'message-assistant'
+                                    }`}
                             >
                                 <div
-                                    className={`p-3 rounded-lg max-w-[80%] break-words overflow-wrap-anywhere text-base ${message.role === 'user'
-                                        ? 'bg-blue-500 text-white'
-                                        : 'bg-gray-100 text-gray-900'
-                                        }`} style={{ fontSize: '0.6rem' }}
+                                    className={`message-bubble ${message.role === 'user'
+                                        ? 'message-bubble-user'
+                                        : 'message-bubble-assistant'
+                                        }`}
                                 >
                                     {message.role === 'assistant' ? (
                                         <ReactMarkdown>{message.content}</ReactMarkdown>
@@ -113,21 +131,22 @@ export default function ChatInterface() {
                             </div>
                         ))}
                     </div>
-                    <div className="border-t p-4">
-                        <div className="flex gap-2">
+
+                    <footer className="chat-input-container">
+                        <div className="chat-input-wrapper">
                             <input
                                 type="text"
                                 value={input}
-                                onChange={(e) => setInput(e.target.value)}
-                                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                                onChange={handleInputChange}
+                                onKeyPress={handleKeyPress}
                                 placeholder="Hãy đặt câu hỏi..."
-                                className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                                className="chat-input"
                                 disabled={isLoading}
                             />
                             <Button
                                 onClick={sendMessage}
                                 disabled={isLoading}
-                                className="bg-blue-500 hover:bg-blue-600 text-white"
+                                className="send-button"
                             >
                                 {isLoading ? (
                                     <Loader2 className="w-4 h-4 animate-spin" />
@@ -136,9 +155,11 @@ export default function ChatInterface() {
                                 )}
                             </Button>
                         </div>
-                    </div>
+                    </footer>
                 </div>
             )}
         </div>
     );
-}
+};
+
+export default ChatInterface;
