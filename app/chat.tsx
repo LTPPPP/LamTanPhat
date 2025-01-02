@@ -69,12 +69,12 @@ export default function ChatInterface() {
             {!isChatOpen ? (
                 <button
                     onClick={() => setIsChatOpen(true)}
-                    className="p-4 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600"
+                    className="p-4 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600 fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8"
                 >
                     <MessageCircle className="w-6 h-6" />
                 </button>
             ) : (
-                <div className={`flex flex-col w-full max-w-md h-[500px] md:h-[600px] bg-white rounded-lg shadow-lg border border-gray-600 fixed bottom-4 right-4 z-50`}>
+                <div className="flex flex-col h-[500px] w-[400px] bg-white rounded-lg shadow-lg border border-gray-600">
                     <div className="flex justify-between items-center p-4 border-b">
                         <h2 className="text-lg font-bold">Chat</h2>
                         <div className="flex gap-2">
@@ -85,18 +85,11 @@ export default function ChatInterface() {
                                 New Chat
                             </button>
                             <button
-                                onClick={() => setIsChatOpen(true)}
-                                className="p-4 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600"
-                                style={{
-                                    position: 'fixed',
-                                    bottom: '16px',
-                                    right: '16px',
-                                    zIndex: 1000, // Đảm bảo luôn hiển thị trên các thành phần khác
-                                }}
+                                onClick={() => setIsChatOpen(false)}
+                                className="text-gray-500 hover:text-gray-700"
                             >
-                                <MessageCircle className="w-6 h-6" />
+                                ✕
                             </button>
-
                         </div>
                     </div>
                     <div className="flex-1 overflow-y-auto p-4 space-y-4">
