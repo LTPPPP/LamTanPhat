@@ -33,6 +33,7 @@ export default function Home() {
 
   return (
     <AnimatePresence mode="wait">
+      <link rel="icon" href="@/public/images/profile.jpg" type="image/x-icon" />
       <MotionGridLayout
         variants={variants}
         animate={isLoading ? (mobile ? "animate" : "initial") : "animate"}

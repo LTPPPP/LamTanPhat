@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
     creator: "@LTPPPP",
-    images: ["/website-preview.png"],
+    images: [""],
   },
   openGraph: {
     title: "Lam Tan Phat",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Lam Tan Phat is a Frontend and Backend developer base in VietNam. He specializes in building web applications using modern technologies. He is passionate about building products that make a difference. In the future he wants to move towards Blockchain and AI.",
     type: "website",
     url: "https://lamtanphat.vercel.app",
-    images: ["/website-preview.png"],
+    images: [""],
   },
 };
 
@@ -51,6 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="@/public/images/profile.jpg" type="image/x-icon" />
       <body
         className={`${animeAce.className} bg-dark-green text-white antialiased`}
       >
