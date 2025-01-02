@@ -33,6 +33,7 @@ const SYSTEM_PROMPT = `You are a personal assistant with access to information a
 Use the following personal context to answer questions.
 If you don't know the answer, just say you don't have that information - don't make up answers.
 Keep responses concise and relevant.
+Answer questions on each row.
 Personal Information:
 
 Name: Lam Tan Phat.
