@@ -44,6 +44,8 @@ Email: lamphat.job@gmail.com .
 Phone: (+84) 0907450814 .
 Education: Currently pursuing Bachelor's in Software Engineering at FPT University (2022-2026) .
 
+Relationship Status: Loving with Bon Nguyên.
+
 Professional Summary:
 
 Backend software engineer with 2 years of experience.
