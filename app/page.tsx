@@ -17,6 +17,8 @@ import { ContactBtn } from "@/components/contact-btn";
 import { transition } from "@/lib/transition";
 import { AnimatePresence } from "motion/react";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+import Chat from '@/app/chat';
 import {
   item,
   slideDown,
@@ -122,6 +124,7 @@ export default function Home() {
         >
           <Skills />
         </MotionBox>
+        <Chat />
       </MotionGridLayout>
     </AnimatePresence>
   );
