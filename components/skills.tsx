@@ -46,9 +46,9 @@ export const Skills = () => {
           if (typeof item === "object" && item.label) {
             if (!updatedCounters[item.label]) updatedCounters[item.label] = 0;
             if (updatedCounters[item.label] < item.value) {
-              updatedCounters[item.label] += 100; // Tăng 5 mỗi lần
+              updatedCounters[item.label] += 100;
               if (updatedCounters[item.label] > item.value) {
-                updatedCounters[item.label] = item.value; // Đảm bảo không vượt quá giá trị mục tiêu
+                updatedCounters[item.label] = item.value;
               }
             }
           }
@@ -74,7 +74,7 @@ export const Skills = () => {
                     <li key={item.label} className="text-center pr-5">
                       {item.label}:{" "}
                       <span className="font-bold flex flex-col text-yellow-600">
-                        {counters[item.label] || 0}
+                        {counters[item.label] || 0}+
                       </span>
                     </li>
                   ) : null

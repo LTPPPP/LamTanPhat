@@ -2,9 +2,18 @@
 
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
+import dotenv from 'dotenv';
 
-// Initialize Gemini
-const genAI = new GoogleGenerativeAI("AIzaSyCxQGRW62OOvdqvJArZhM-hAXWtEMlAtXE");
+dotenv.config();
+
+const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+
+if (!apiKey) {
+  console.error('NEXT_PUBLIC_GEMINI_API_KEY is missing.');
+  throw new Error('NEXT_PUBLIC_GEMINI_API_KEY is not defined');
+}
+
+const genAI = new GoogleGenerativeAI(apiKey);
 
 // Thêm log để kiểm tra API key có được load không
 console.log(genAI);
