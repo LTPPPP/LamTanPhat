@@ -25,8 +25,8 @@ const skills: Skill[] = [
   {
     title: "Experience",
     items: [
-      { label: "Lines of Code", value: 73000 },
-      { label: "Projects", value: 80 },
+      { label: "Lines of Code", value: 100000 },
+      { label: "Projects", value: 82 },
       { label: "Papers", value: 2 },
       { label: "Achievements", value: 10 },
     ],
