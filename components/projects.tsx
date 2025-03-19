@@ -15,6 +15,7 @@ const items = [
   {
     name: "Generate image from basic text",
     technologies: [
+      "AI",
       "TypeScript",
       "Google Cloud Platform",
       "GeminiAI",
@@ -71,6 +72,7 @@ const items = [
     name: "A typing game can customize your own text",
     technologies: [
       "Next.js",
+      "TypeScript",
       "TailwindCSS",
     ],
     preview: "/projects/typetype.png",
