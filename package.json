@@ -7,17 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "apt-get update && apt-get install -y cmake && npm install"
+    "vercel-build": "curl -fsSL https://apt.kitware.com/keys/kitware-archive-latest.asc | gpg --dearmor -o /usr/share/keyrings/kitware-archive-keyring.gpg && echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | tee /etc/apt/sources.list.d/kitware.list > /dev/null && apt-get update && apt-get install -y cmake && npm install"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "@pinecone-database/pinecone": "^5.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.5.1",
-    "faiss-node": "^0.5.1",
     "i": "^0.3.7",
     "langchain": "^0.3.9",
     "lucide-react": "^0.469.0",
