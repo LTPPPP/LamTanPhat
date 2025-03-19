@@ -13,6 +13,33 @@ import { Button } from "./ui/button";
 
 const items = [
   {
+    name: "Generate image from basic text",
+    technologies: [
+      "TypeScript",
+      "Google Cloud Platform",
+      "GeminiAI",
+    ],
+    preview: "/projects/genimg.png",
+    github: "https://github.com/LTPPPP/Generate-Image",
+    website: "https://ltpppp-genimg.vercel.app/"
+  },
+  {
+    name: "Sign Language Recognition for everyone - MuteAnt",
+    technologies: [
+      "Spring Boot",
+      "Next.js",
+      "PostgreSQL",
+      "Google Cloud Platform",
+      "TensorFlow",
+      "Python",
+      "RestAPI",
+      "TensorFlow.js",
+    ],
+    preview: "/projects/mute-ant.png",
+    github: "null",
+    website: "https://mute-ant.vercel.app/",
+  },
+  {
     name: "AI-Integrated Autism Support Website - Donald",
     technologies: [
       "Python",
@@ -21,7 +48,7 @@ const items = [
       "MySQL",
       "WebSockets",
       "Google Cloud Platform",
-      "GeminAI",
+      "GeminiAI",
     ],
     preview: "/projects/donald.png",
     github: "https://github.com/LTPPPP/Donald",
@@ -39,6 +66,16 @@ const items = [
     preview: "/projects/brainstormera.png",
     github: "https://github.com/LTPPPP/BrainStormEra",
     website: null,
+  },
+  {
+    name: "A typing game can customize your own text",
+    technologies: [
+      "Next.js",
+      "TailwindCSS",
+    ],
+    preview: "/projects/typetype.png",
+    github: "https://github.com/LTPPPP/TypeType",
+    website: "https://typetype-hazel.vercel.app/"
   },
   {
     name: "SandBox game",
@@ -115,7 +152,7 @@ export const Projects = () => {
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
           <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-            <p className="mb-4 text-lg font-semibold text-red-500">Unavailable hosting now</p>
+            <p className="mb-4 text-lg font-semibold text-red-500">The project is private now, sorry!</p>
             <button
               onClick={closePopup}
               className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
