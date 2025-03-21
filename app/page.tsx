@@ -8,7 +8,6 @@ import { MotionHeader } from "@/components/header";
 
 import { Projects } from "@/components/projects";
 import { Details } from "@/components/details";
-import { AboutMe } from "@/components/about-me";
 import { Socials } from "@/components/socials";
 import { Profile } from "@/components/profile";
 import { Skills } from "@/components/skills";
@@ -17,6 +16,7 @@ import { ContactBtn } from "@/components/contact-btn";
 import { transition } from "@/lib/transition";
 import { AnimatePresence } from "motion/react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { IconCloudMain } from "@/components/icon-cloud";
 
 import {
   item,
@@ -100,7 +100,7 @@ export default function Home() {
           transition={transition}
           className="relative min-h-[400px] lg:col-start-9 lg:-col-end-1 lg:row-start-2 lg:row-end-9"
         >
-          <AboutMe />
+          <IconCloudMain />
         </MotionBox>
         <MotionBox
           variants={slideToRight}
