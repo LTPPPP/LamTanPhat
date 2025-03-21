@@ -100,6 +100,9 @@ export default function Home() {
           transition={transition}
           className="relative min-h-[400px] lg:col-start-9 lg:-col-end-1 lg:row-start-2 lg:row-end-9"
         >
+          <div className="flex justify-center">
+            <h1>Tech stack</h1>
+          </div>
           <IconCloudMain />
         </MotionBox>
         <MotionBox
