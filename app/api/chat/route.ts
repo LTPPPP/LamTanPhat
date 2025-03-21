@@ -1,16 +1,20 @@
 // route.ts
 
-import { NextResponse } from 'next/server';
-import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
-import dotenv from 'dotenv';
+import { NextResponse } from "next/server";
+import {
+  GoogleGenerativeAI,
+  HarmCategory,
+  HarmBlockThreshold,
+} from "@google/generative-ai";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
 if (!apiKey) {
-  console.error('NEXT_PUBLIC_GEMINI_API_KEY is missing.');
-  throw new Error('NEXT_PUBLIC_GEMINI_API_KEY is not defined');
+  console.error("NEXT_PUBLIC_GEMINI_API_KEY is missing.");
+  throw new Error("NEXT_PUBLIC_GEMINI_API_KEY is not defined");
 }
 
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -105,18 +109,18 @@ FaceBook : https://www.facebook.com/profile.php?id=100041724977557
 Instagram : https://www.instagram.com/phatlam811/
 LinkedIn : https://www.linkedin.com/in/l%C3%A2m-t%E1%BA%A5n-ph%C3%A1t-36822524a/
 Locket : https://locket.camera/links/c8xfRxfDNsV5zHHt7
-`
+`;
 
-console.log('Chat API loaded');
+console.log("Chat API loaded");
 
 export async function POST(req: Request) {
   try {
     const { question, context } = await req.json();
-    console.log('Received question:', question);
-    
+    console.log("Received question:", question);
+
     // Get the Gemini model
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2-flash",
       safetySettings,
     });
 
@@ -129,7 +133,11 @@ export async function POST(req: Request) {
         },
         {
           role: "model",
-          parts: [{ text: "I understand. I will use the provided context to answer questions about the person." }],
+          parts: [
+            {
+              text: "I understand. I will use the provided context to answer questions about the person.",
+            },
+          ],
         },
       ],
     });
@@ -137,16 +145,16 @@ export async function POST(req: Request) {
     // Generate response
     const result = await chat.sendMessage([{ text: question }]);
     const response = await result.response;
-    
-    return NextResponse.json({ 
+
+    return NextResponse.json({
       response: response.text(),
-      sources: context // Return the relevant context used
+      sources: context, // Return the relevant context used
     });
   } catch (error) {
-    console.error('Error in chat API:', error);
+    console.error("Error in chat API:", error);
     return NextResponse.json(
-      { error: 'Failed to process your request' },
-      { status: 500 }
+      { error: "Failed to process your request" },
+      { status: 500 },
     );
   }
 }
