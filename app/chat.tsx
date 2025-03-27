@@ -22,6 +22,13 @@ const ChatInterface = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isChatOpen, setIsChatOpen] = useState(false);
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
+    const chatMessagesRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (chatMessagesRef.current) {
+            chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+        }
+    }, [messages]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
@@ -129,19 +136,13 @@ const ChatInterface = () => {
                         </div>
                     </header>
 
-                    <div className="chat-messages">
+                    <div ref={chatMessagesRef} className="chat-messages">
                         {messages.map((message, index) => (
                             <div
                                 key={index}
-                                className={`message-wrapper ${message.role === 'user' ? 'message-user' : 'message-assistant'
-                                    }`}
+                                className={`message-wrapper ${message.role === 'user' ? 'message-user' : 'message-assistant'}`}
                             >
-                                <div
-                                    className={`message-bubble ${message.role === 'user'
-                                        ? 'message-bubble-user'
-                                        : 'message-bubble-assistant'
-                                        }`}
-                                >
+                                <div className={`message-bubble ${message.role === 'user' ? 'message-bubble-user' : 'message-bubble-assistant'}`}>
                                     {message.role === 'assistant' ? (
                                         <ReactMarkdown>{message.content}</ReactMarkdown>
                                     ) : (
