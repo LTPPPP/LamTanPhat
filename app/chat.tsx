@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Button } from '@/components/ui/button';
 import { Loader2, MessageCircle } from 'lucide-react';
@@ -21,6 +21,7 @@ const ChatInterface = () => {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
@@ -78,6 +79,25 @@ const ChatInterface = () => {
         setInput('');
     };
 
+    // Đóng chat khi click ra ngoài
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (chatContainerRef.current && !chatContainerRef.current.contains(event.target as Node)) {
+                setIsChatOpen(false);
+            }
+        };
+
+        if (isChatOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isChatOpen]);
+
     return (
         <div className="fixed bottom-4 right-4">
             {!isChatOpen ? (
@@ -89,7 +109,7 @@ const ChatInterface = () => {
                     <MessageCircle className="w-6 h-6" />
                 </button>
             ) : (
-                <div className="chat-container">
+                <div className="chat-container" ref={chatContainerRef}>
                     <header className="chat-header">
                         <h2 className="chat-title">Chat</h2>
                         <div className="chat-header-buttons">
