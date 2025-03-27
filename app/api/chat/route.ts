@@ -120,7 +120,7 @@ export async function POST(req: Request) {
 
     // Get the Gemini model
     const model = genAI.getGenerativeModel({
-      model: "gemini-2-flash",
+      model: "gemini-2.0-flash",
       safetySettings,
     });
 
